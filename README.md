@@ -80,3 +80,49 @@ MIPS excercise:
               la $a0, last_br
               syscall       
 ```
+
+### Week-1 challenge #3
+
+Print special numbers:
+```
+for (let i = 0; i <= 100; i++){
+    if (i%2 == 0)
+        console.log(i);
+}
+```
+Bad code 1:
+```
+var cond = false;
+
+if ((cond = true)) {
+  console.log('The cond variable is true');
+} else {
+  console.log('The cond variable is false');
+}
+```
+The error within this code is in the if condition, "(cond = true)" this code does not make sense as an if condition, be cause it does not evaluate a boolean expression, it is an assignment with "=" operator, instead of being "==" or "===" both of which produce a boolean value product of the comparison, this code will always execute the if statement within be cause the condition will always be true.
+
+I would fix it this way:
+```
+var cond = false;
+
+if (cond) {
+  console.log('The cond variable is true');
+} else {
+  console.log('The cond variable is false');
+}
+```
+
+Bad code 2:
+```
+var n = 100;
+
+if (n == 100) {
+  console.log('This is a special number!');
+}
+else if ((n < 1000) && (n % 10 == 0)) {
+  console.log('This number is almost special');
+} else {
+  console.log('Just a regular number');
+}
+```
