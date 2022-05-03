@@ -126,3 +126,176 @@ else if ((n < 1000) && (n % 10 == 0)) {
   console.log('Just a regular number');
 }
 ```
+### Week-2 Katas
+```
+1-1
+function multiply(a, b){
+  return a * b;
+}
+
+1-2
+function uniTotal(s) {
+  let total = 0;
+  for (let i = 0; i < s.length; i++) {
+    total += s.charCodeAt(i);
+  }
+  return total;
+}
+
+1-3
+function getChar(c){
+  return String.fromCharCode(c);
+}
+
+1-4
+function decToBin(n) {
+  let answer = "";
+  let biNum = new Array(32);
+  let i = 0;
+
+  while (n > 0) {
+    biNum[i] = n % 2;
+    n = Math.floor(n / 2);
+    i++
+  }
+
+  for (let j = i - 1; j >= 0; j--) {
+    answer = answer + biNum[j].toString();
+  }
+
+  return answer;
+}
+
+function addBinary(a,b) {
+  return decToBin(a + b);
+}
+
+1-5
+function finalGrade (exam, projects) {
+  if(exam > 90 || projects > 10)
+    return 100;
+
+  if(exam > 75 && projects >= 5)
+    return 90;
+
+  if(exam > 50 && projects >= 2)
+    return 75;
+
+  return 0;
+}
+
+2-1
+function dutyFree(normPrice, discount, hol){
+  return Math.floor(hol/((normPrice/100)*discount));
+}
+
+2-2
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  return Math.abs(dadYearsOld - (sonYearsOld * 2));
+}
+
+2-3
+function validSpacing(s) {
+  if(s[0] == " " || s[s.length-1] == " ")
+    return false;
+
+  let spaces = 0;
+  let spaIndexes = [];
+  for(let i = 0; i < s.length; i++) {
+    if(s[i] == " "){
+      spaces++;
+      spaIndexes.push(i);
+    }
+  }
+
+  if(spaces <= 1)
+    return true;
+
+  for(let i = 0; i < spaIndexes.length; i++) {
+    if(Math.abs(spaIndexes[i] - spaIndexes[i+1]) == 1)
+      return false;
+  }
+
+  return true;
+}
+
+2-4
+function fakeBin(x){
+  let answer = ""
+  for(let i = 0; i < x.length; i++) {
+    if(x[i] < 5)
+      answer = answer + "0";
+    else
+      answer = answer + "1";
+  }
+  return answer;
+}
+
+3-1
+function remove(myString) {
+  if (myString[myString.length - 1] == "!")
+    return remove(myString.slice(0, -1));
+  else
+    return myString;
+}
+
+3-2
+function shortcut(string) {
+  let result = string;
+  for(let i = 0; i < string.length; i++) {
+    if (string[i] == "a" ||
+        string[i] == "e" ||
+        string[i] == "i" ||
+        string[i] == "o" ||
+        string[i] == "u")
+      result = result.replace(string[i], "");
+  }
+    return result;
+}
+
+3-3
+const rps = (p1, p2) => {
+
+  if(p1.length == p2.length)
+    return "Draw!";
+
+  if(p1.length != 5 && p2.length != 5)
+  {
+    if(p1.length == 4)
+      return "Player 1 won!";
+    else
+      return "Player 2 won!";
+  }
+  else if(p1.length > p2.length)
+  {
+    return "Player 1 won!";
+  }
+  return "Player 2 won!";
+};
+
+3-4
+function persistence(num) {
+
+  if(num <= 9)
+    return 0;
+
+  let flag = true;
+  let saveMult = 1;
+  let counter = 0;
+  let numStr = num.toString();
+
+  do {
+    for (let i = 0; i < numStr.length; i++) {
+      saveMult *= numStr[i];
+    }
+    numStr = saveMult.toString();
+    saveMult = 1;
+    counter++;
+    if (numStr.length < 2)
+      flag = false;
+
+  } while (flag);
+
+  return counter;
+}
+```
